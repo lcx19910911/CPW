@@ -61,9 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebService.cs" />
+    <Compile Include="WebService.Department - 复制.cs" />
+    <Compile Include="WebService.Config.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

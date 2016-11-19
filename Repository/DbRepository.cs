@@ -50,7 +50,16 @@ namespace DOL.Repository
 
 
         public DbSet<User> User { get; set; }
-        
+
+        public DbSet<Config> Config { get; set; }
+
+        public DbSet<Product> Product { get; set; }
+
+
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<Recruit> Recruit { get; set; }
+        public DbSet<Message> Message { get; set; }
+
     }
 
 }
