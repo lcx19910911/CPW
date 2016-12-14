@@ -151,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="HtmlTemplates\Image\Index.html" />
+    <Content Include="HtmlTemplates\Image\Update.html" />
     <Content Include="Images\404Pic.png" />
     <Content Include="Images\loading.jpg" />
     <Content Include="Images\login-sprite.png" />
@@ -191,6 +191,40 @@
     <Content Include="scripts\Nuoya\nuoya.other.js" />
     <Content Include="scripts\tipso\css\tipso.min.css" />
     <Content Include="scripts\tipso\js\tipso.js" />
+    <Content Include="Styles\admin.css" />
+    <Content Include="Styles\css\amazeui.css" />
+    <Content Include="Styles\css\amazeui.datetimepicker.css" />
+    <Content Include="Styles\css\amazeui.min.css" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\datetimepicker\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Styles\datetimepicker\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\datetimepicker\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\datetimepicker\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\datetimepicker\images\ui-icons_888888_256x240.png" />
+    <Content Include="Styles\datetimepicker\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\datetimepicker\jquery-ui.css" />
+    <Content Include="Styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="Styles\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\2.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\3.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\4.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\5.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\6.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\7.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\8.png" />
+    <Content Include="Styles\zTreeStyle\img\diy\9.png" />
+    <Content Include="Styles\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Styles\zTreeStyle\img\loading.gif" />
+    <Content Include="Styles\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="Styles\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="Styles\zTreeStyle\zTreeStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -199,7 +233,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\LoginFilterAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\AccoutController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -215,12 +248,21 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Views\Accout\Login.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Shared\Forbidden.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Image\Detial.cshtml" />
+    <Content Include="NLog.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Base\_404.cshtml" />
+    <Content Include="Views\Base\_500.cshtml" />
+    <Content Include="Styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="Styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="Styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Styles\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\cpw.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,11 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
-    <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

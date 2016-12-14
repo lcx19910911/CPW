@@ -11,16 +11,23 @@ namespace DOL.Web.Controllers
     public class UploadController : Controller
     {
         // GET: Upload
-        public ActionResult UploadImage(string mark)
+        public JsonResult UploadImage(string mark)
         {
             HttpPostedFileBase file = Request.Files[0];
             if (file != null)
             {
-                string path = UploadHelper.Save(file, mark);
-                return Content(path);
+                if (file.ContentLength > 4 * 1024 * 1024)
+                {
+                    return Json(new { Code=2});
+                }
+                else
+                {
+                    string path = UploadHelper.Save(file, mark);
+                    return Json(new { Code = 0,Data= path });
+                }
             }
             else
-                return Content("");
+                return Json(new { Code = 1 });
         }
     }
 }

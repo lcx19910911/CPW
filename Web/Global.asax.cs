@@ -1,5 +1,5 @@
 ﻿using Core;
-using DOL.Repository;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

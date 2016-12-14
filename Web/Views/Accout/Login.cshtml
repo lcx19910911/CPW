@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>在线报名管理平台 - 登录</title>
+    <title>图片管理后台 - 登录</title>
     <style>
         html, body {
             height: 100%;
@@ -221,7 +221,7 @@
 <body>
 
     <form id="login">
-        <h1>在线报名管理平台</h1>
+        <h1>图片管理后台</h1>
         <fieldset id="inputs">
             <input id="username" name="account" type="text" placeholder="账号" autofocus="" required="">
             <input id="password" name="password" type="password" placeholder="密码" required="">
@@ -250,7 +250,7 @@
                     data: { password: document.forms[0].password.value, account: document.forms[0].account.value },
                     success: function (data) {
                         if (data.Result) {
-                            window.location.href = "@(string.IsNullOrEmpty(Request["redirecturl"])?"/Home/index": Request["redirecturl"])";
+                            window.location.href = "@(string.IsNullOrEmpty(Request["redirecturl"])?"/Image/index": Request["redirecturl"])";
                         }
                         else {
                             alert(data.ErrorDesc);
@@ -258,6 +258,12 @@
                     }
                 });
         }
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 13) { // enter 键
+                Login();
+            }
+        };
     </script>
 </body>
 </html>          

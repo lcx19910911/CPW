@@ -255,7 +255,8 @@ UploadAssist.prototype = {
                     }
 
                     if (that.settings.onComplete) {
-                        that.settings.onComplete(dcmt1.body.innerHTML);
+                        var json = eval("(" + dcmt1.body.innerText + ")");
+                        that.settings.onComplete(json);
                     }
 
                     if (that.uploadNum == that.uploadFilesNum) {

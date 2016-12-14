@@ -1,6 +1,6 @@
 ﻿
 using Core;
-using DOL.Repository;
+using Repository;
 using Model;
 using System;
 using System.Collections.Generic;

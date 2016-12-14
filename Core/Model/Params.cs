@@ -35,7 +35,7 @@ namespace Core
         /// <summary>
         /// 登陆cookie
         /// </summary>
-        public static readonly string UserCookieName = "dol_user";
+        public static readonly string UserCookieName = "cpw_user";
 
         /// <summary>
         /// cookie 过期时间

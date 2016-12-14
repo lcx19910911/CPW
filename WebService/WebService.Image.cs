@@ -1,6 +1,6 @@
 ﻿using Core;
 using Model;
-using DOL.Repository;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -79,10 +79,10 @@ namespace Service
             using (DbRepository entities = new DbRepository())
             {
                 model.ID = Guid.NewGuid().ToString("N");
-                entities.Image.Add(model);
-
                 model.CreatedTime = DateTime.Now;
                 model.UpdatedTime = DateTime.Now;
+
+                entities.Image.Add(model);
 
                 if (entities.SaveChanges() > 0)
                 {
@@ -111,6 +111,7 @@ namespace Service
                 if (oldEntity != null)
                 {
                     oldEntity.Content = model.Content;
+                    oldEntity.PushTime = model.PushTime;
                     oldEntity.Path = model.Path;
                     oldEntity.Title = model.Title;
                     oldEntity.UpdatedTime = DateTime.Now;

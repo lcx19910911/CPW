@@ -11,10 +11,10 @@ namespace Web.Controllers
     /// <summary>
     /// 科目薪资
     /// </summary>
-    [LoginFilter]
     public class ImageController : BaseController
     {
 
+        [LoginFilter]
         public ViewResult Index()
         {
             return View();
@@ -28,6 +28,7 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
+        [LoginFilter]
         public JsonResult Add(Image entity)
         {
             ModelState.Remove("ID");
@@ -50,6 +51,7 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
+        [LoginFilter]
         public JsonResult Update(Image entity)
         {
             ModelState.Remove("UpdatedTime");
@@ -71,6 +73,7 @@ namespace Web.Controllers
         /// 获取分页列表
         /// </summary>
         /// <returns></returns>
+        [LoginFilter]
         public ActionResult GetPageList(int pageIndex,
             int pageSize,
             string title,
@@ -84,6 +87,7 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
+        [LoginFilter]
         public ActionResult Find(string id)
         {
             return JResult(WebService.Find_Image(id));
@@ -94,6 +98,7 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
+        [LoginFilter]
         public ActionResult Delete(string ids)
         {
             return JResult(WebService.Delete_Image(ids));
@@ -103,6 +108,7 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult Detial(string id)
         {
             return View(WebService.Find_Image(id));

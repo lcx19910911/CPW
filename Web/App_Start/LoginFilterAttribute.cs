@@ -33,6 +33,7 @@ namespace Web
                 RedirectResult redirectResult = new RedirectResult("/Accout/Login?redirecturl=" + requestUrl);
                 filterContext.Result = redirectResult;
             }
+            base.OnActionExecuting(filterContext);
         }
     }
 }

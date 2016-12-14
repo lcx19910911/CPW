@@ -17,12 +17,8 @@ namespace Core
         {
             try
             {
-                HttpCookie cookie = new HttpCookie(Params.UserCookieName);
-                cookie.Value = CryptoHelper.AES_Encrypt(user.ToJson(), Params.SecretKey);
-                cookie.Expires = DateTime.Now.AddMinutes(Params.CookieExpires);
-                // 写登录Cookie
-                HttpContext.Current.Response.Cookies.Remove(cookie.Name);
-                HttpContext.Current.Response.Cookies.Add(cookie);
+                var obj = CryptoHelper.AES_Encrypt(user.ToJson(), Params.SecretKey);
+                HttpContext.Current.Session[Params.UserCookieName] = obj;
             }
             catch (Exception ex){
                 LogHelper.WriteException(ex);
@@ -35,10 +31,11 @@ namespace Core
         /// <returns></returns>
         public static User GetCurrentUser()
         {
-            HttpCookie cookie = HttpContext.Current.Request.Cookies[Params.UserCookieName];
-            if (cookie == null)
+            var  obj = HttpContext.Current.Session[Params.UserCookieName];
+            if (obj == null)
                 return null;
-            User user = (CryptoHelper.AES_Decrypt(cookie.Value, Params.SecretKey)).DeserializeJson<User>();
+            
+            User user = (CryptoHelper.AES_Decrypt(obj.ToString(), Params.SecretKey)).DeserializeJson<User>();
             return user;
         }
 
@@ -48,26 +45,8 @@ namespace Core
         /// <returns></returns>
         public static void ClearCookie()
         {
-            HttpCookie cookie = HttpContext.Current.Request.Cookies[Params.UserCookieName];
-            if (cookie != null)
-            {
-                cookie.Expires = DateTime.Now.AddHours(-1);
-                HttpContext.Current.Response.Cookies.Remove(cookie.Name);
-                HttpContext.Current.Response.Cookies.Add(cookie);
-            }
+            HttpContext.Current.Session[Params.UserCookieName] = "";
         }
 
-        /// <summary>
-        /// 是否登陆
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsLogin()
-        {
-            HttpCookie cookie = HttpContext.Current.Request.Cookies[Params.UserCookieName];
-            if (cookie == null)
-                return false;
-            else
-                return true;
-        }
     }
 }

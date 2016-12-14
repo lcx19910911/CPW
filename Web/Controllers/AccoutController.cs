@@ -8,6 +8,7 @@ using Core;
 
 namespace Web.Controllers
 {
+    [AllowAnonymous]
     public class AccoutController : BaseController
     {
         // GET: Login

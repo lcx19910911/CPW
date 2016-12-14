@@ -8,6 +8,7 @@ namespace Model
     [Table("Image")]
     public class Image : BaseEntity
     {
+        [Required]
         public string Title { get; set; }
 
         public string Path { get; set; }
