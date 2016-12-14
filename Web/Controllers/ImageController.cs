@@ -1,10 +1,12 @@
 ﻿
+using Core;
 using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Utility;
 
 namespace Web.Controllers
 {
@@ -111,7 +113,27 @@ namespace Web.Controllers
         [AllowAnonymous]
         public ActionResult Detial(string id)
         {
+            string nonceStr = new CheckCode().CreateVerifyCode();
+            string timestamp = GetUnixTimeStamp(DateTime.Now);
+            ReturnStr objec = SignatureHelper.GetSignature(timestamp, nonceStr);
+            ViewBag.AppId = System.Configuration.ConfigurationManager.AppSettings["appid"];
+            ViewBag.NonceStr = objec.nonceStr;
+            ViewBag.TimeStamp = objec.timestamp;
+            ViewBag.Signature = objec.signature;
             return View(WebService.Find_Image(id));
+        }
+
+        /// <summary>
+        /// 获得时间戳字符串
+        /// </summary>
+        /// <param name="dt">当前时间</param>
+        /// <returns></returns>
+        public string GetUnixTimeStamp(DateTime dt)
+        {
+            DateTime unixStartTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+            TimeSpan timeSpan = dt.Subtract(unixStartTime);
+            string timeStamp = timeSpan.Ticks.ToString();
+            return timeStamp.Substring(0, timeStamp.Length - 7);
         }
         
     }
